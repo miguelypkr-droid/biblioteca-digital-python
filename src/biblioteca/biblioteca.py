@@ -1,41 +1,5 @@
-"""
-Módulo que define la clase Biblioteca (coordinador principal).
-
-TODO (Principiantes - Pasos 3 y 4):
-- Implementar registrar_libro() y registrar_usuario()
-- Implementar prestar() y devolver()
-
-TODO (Avanzados - Pasos 1-4):
-- Mantener índices por autor y género
-- Implementar búsquedas
-- Implementar reportes
-"""
-from datetime import datetime
-
-from src.biblioteca.libro import Libro
-from src.biblioteca.usuario import Usuario
-from src.biblioteca.prestamo import Prestamo
-
-
 class Biblioteca:
-    """Coordinador del catálogo, usuarios, préstamos e índices de búsqueda."""
-
     def __init__(self) -> None:
-        """
-        Inicializa la biblioteca con estructuras de datos vacías.
-
-        Estructuras principales:
-        - catalogo: dict[str, Libro] - Diccionario de libros por id_libro
-        - usuarios: dict[str, Usuario] - Diccionario de usuarios por id_usuario
-        - prestamos_activos: list[Prestamo] - Lista de préstamos no devueltos
-
-        Estructuras para búsqueda (Avanzados):
-        - indice_por_autor: dict[str, list[str]] - IDs de libros por autor
-        - indice_por_genero: dict[str, list[str]] - IDs de libros por género
-
-        Estructura para historial:
-        - historial_prestamos: dict[str, list[str]] - Eventos por id_usuario
-        """
         self.catalogo: dict[str, Libro] = {}
         self.usuarios: dict[str, Usuario] = {}
         self.prestamos_activos: list[Prestamo] = []
@@ -43,11 +7,10 @@ class Biblioteca:
         self.indice_por_genero: dict[str, list[str]] = {}
         self.historial_prestamos: dict[str, list[str]] = {}
 
-    # =========================================================================
-    # MÉTODOS DE REGISTRO (Principiantes - Paso 3)
-    # =========================================================================
-
     def registrar_libro(self, libro: Libro) -> None:
+        if libro.id_libro in self.catalogo:
+            raise ValueError("El id_libro ya existe.")
+        self.catalogo[libro.id_libro] = libro
         """
         Registra un libro en el catálogo.
 
