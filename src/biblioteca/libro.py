@@ -8,21 +8,18 @@ TODO (Principiantes - Paso 1):
 
 
 class Libro:
-    """Entidad que representa un libro en el catálogo."""
 
     def __init__(self, id_libro: str, titulo: str, autor: str, anio: int, genero: str) -> None:
-        """
-        Inicializa un nuevo libro.
+        self.id_libro = id_libro
+        self.titulo = titulo
+        self.autor = autor
+        self.anio = anio
+        self.genero = genero
+        self.prestado = False
 
-        TODO: Asignar los parámetros a atributos de instancia.
-        Además, crear un atributo 'prestado' que inicie en False.
+    def __str__(self):
 
-        Args:
-            id_libro: Identificador único del libro (ej: "L001")
-            titulo: Título del libro
-            autor: Nombre del autor
-            anio: Año de publicación
-            genero: Género literario (ej: "Ciencia Ficción")
+
         """
         pass  # TODO: Implementar
 
