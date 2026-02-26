@@ -9,34 +9,11 @@ class Usuario:
         self.limite_prestamos = limite_prestamos
         self.prestamos = []
 
-        """
-        Inicializa un nuevo usuario.
-
-        TODO: Asignar los parámetros a atributos de instancia.
-        Además, crear un atributo 'prestamos' como una lista vacía que
-        almacenará referencias a los préstamos del usuario.
-
-        Args:
-            id_usuario: Identificador único del usuario (ej: "U001")
-            nombre: Nombre del usuario
-            limite_prestamos: Máximo de préstamos activos permitidos (default: 3)
-        """
-        pass  # TODO: Implementar
+        pass
 
     def puede_prestar(self) -> bool:
-        """
-        Verifica si el usuario puede solicitar un nuevo préstamo.
-
-        TODO: Contar cuántos préstamos activos tiene el usuario.
-        Un préstamo está activo si su fecha_devolucion es None.
-        Retornar True si la cantidad de activos es menor al limite_prestamos.
-
-        Pista: Usa una list comprehension para filtrar préstamos activos.
-
-        Returns:
-            True si el usuario puede pedir más libros, False si ya alcanzó el límite.
-        """
-        pass  # TODO: Implementar
+        prestamos_activos = [p for p in self.prestamos if p.fecha_devolucion is None]
+        return len(prestamos_activos) < self.limite_prestamos
 
     def __str__(self) -> str:
         """
