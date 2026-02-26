@@ -1,12 +1,3 @@
-"""
-Módulo que define la clase Libro.
-
-TODO (Principiantes - Paso 1):
-- Definir la clase Libro con los atributos indicados.
-- Implementar el método __str__ para mostrar la información del libro.
-"""
-
-
 class Libro:
 
     def __init__(self, id_libro: str, titulo: str, autor: str, anio: int, genero: str) -> None:
@@ -18,21 +9,7 @@ class Libro:
         self.prestado = False
 
     def __str__(self):
+        estado = "Prestado" if self.prestado else "Disponible"
+        return f"{self.id_libro}: {self.titulo} - {self.autor} ({self.anio}) [{self.genero}] · {estado}"
 
-
-        """
-        pass  # TODO: Implementar
-
-    def __str__(self) -> str:
-        """
-        Devuelve una representación en texto del libro.
-
-        TODO: Retornar un string con el formato:
-        "{id_libro}: {titulo} - {autor} ({anio}) [{genero}] · {estado}"
-
-        Donde estado es "Prestado" si prestado=True, o "Disponible" si prestado=False.
-
-        Ejemplo de salida:
-        "L001: Cien años de soledad - García Márquez (1967) [Realismo Mágico] · Disponible"
-        """
-        pass  # TODO: Implementar
+    pass
