@@ -1,17 +1,14 @@
-"""
-Módulo que define la clase Usuario.
 
-TODO (Principiantes - Paso 2):
-- Definir la clase Usuario con los atributos indicados.
-- Implementar el método puede_prestar() para validar límite de préstamos.
-- Implementar el método __str__ para mostrar la información del usuario.
-"""
 
 
 class Usuario:
-    """Representa a una persona que puede solicitar préstamos en la biblioteca."""
 
     def __init__(self, id_usuario: str, nombre: str, limite_prestamos: int = 3) -> None:
+        self.id_usuario= id_usuario
+        self.nombre = nombre
+        self.limite_prestamos = limite_prestamos
+        self.prestamos = []
+
         """
         Inicializa un nuevo usuario.
 
